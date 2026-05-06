@@ -1,10 +1,16 @@
 import { NavLink } from 'react-router-dom'
-import { LayoutDashboard, Users } from 'lucide-react'
+import { LayoutDashboard, Users, Megaphone, BookOpen, Headphones } from 'lucide-react'
 import { cn } from '@/lib/utils.js'
 
-const navItems = [
+const primaryNav = [
   { to: '/', label: 'Dashboard', icon: LayoutDashboard },
   { to: '/leads', label: 'Leads', icon: Users },
+]
+
+const secondaryNav = [
+  { to: '/marketing', label: 'Marketing', icon: Megaphone },
+  { to: '/docs', label: 'Documentation', icon: BookOpen },
+  { to: '/helpdesk', label: 'Helpdesk', icon: Headphones },
 ]
 
 export default function Sidebar({ isOpen, onClose }) {
@@ -31,8 +37,34 @@ export default function Sidebar({ isOpen, onClose }) {
           </div>
           Lead Manager
         </div>
-        <nav className="flex flex-1 flex-col gap-2">
-          {navItems.map((item) => {
+        <nav className="flex flex-1 flex-col gap-1">
+          {primaryNav.map((item) => {
+            const Icon = item.icon
+            return (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                end
+                className={({ isActive }) =>
+                  cn(
+                    'flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground',
+                    isActive && 'bg-accent text-foreground',
+                  )
+                }
+                onClick={onClose}
+              >
+                <Icon className="h-4 w-4" />
+                {item.label}
+              </NavLink>
+            )
+          })}
+
+          <div className="my-3 border-t" />
+          <div className="mb-1 px-3 text-[11px] font-semibold uppercase tracking-widest text-muted-foreground/60">
+            Resources
+          </div>
+
+          {secondaryNav.map((item) => {
             const Icon = item.icon
             return (
               <NavLink

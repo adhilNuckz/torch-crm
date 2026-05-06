@@ -1,5 +1,5 @@
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/card.jsx'
+import { Card, CardContent, CardHeader, CardTitle } from '../../../components/ui/card.jsx'
 
 export default function LeadsByStatusChart({ data }) {
   return (

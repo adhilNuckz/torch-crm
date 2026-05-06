@@ -1,5 +1,5 @@
 import { formatDistanceToNow, parseISO } from 'date-fns'
-import { Badge } from '../ui/badge.jsx'
+import { Badge } from '../../../components/ui/badge.jsx'
 
 export default function ActivityTimeline({ activities = [] }) {
   if (!activities.length) {

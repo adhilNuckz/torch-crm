@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
-import { Button } from '../components/ui/button.jsx'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card.jsx'
-import { Input } from '../components/ui/input.jsx'
-import { Label } from '../components/ui/label.jsx'
-import { useAuth } from '../hooks/useAuth.js'
+import { Button } from '../../../components/ui/button.jsx'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../../components/ui/card.jsx'
+import { Input } from '../../../components/ui/input.jsx'
+import { Label } from '../../../components/ui/label.jsx'
+import { useAuth } from '../../../hooks/useAuth.js'
 
 export default function LoginPage() {
   const { user, login } = useAuth()

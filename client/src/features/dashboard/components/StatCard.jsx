@@ -1,4 +1,4 @@
-import { Card, CardContent } from '../ui/card.jsx'
+import { Card, CardContent } from '../../../components/ui/card.jsx'
 
 export default function StatCard({ label, value, helper }) {
   return (

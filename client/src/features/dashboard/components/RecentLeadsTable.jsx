@@ -1,6 +1,6 @@
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../ui/table.jsx'
-import StatusBadge from '../leads/StatusBadge.jsx'
-import { formatDate } from '../../utils/formatters.js'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../../components/ui/table.jsx'
+import StatusBadge from '../../leads/components/StatusBadge.jsx'
+import { formatDate } from '../../../utils/formatters.js'
 
 export default function RecentLeadsTable({ leads, onSelect }) {
   return (

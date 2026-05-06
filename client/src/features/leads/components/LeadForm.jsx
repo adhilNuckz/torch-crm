@@ -1,9 +1,9 @@
 import { useMemo, useState } from 'react'
-import { Button } from '../ui/button.jsx'
-import { Input } from '../ui/input.jsx'
-import { Label } from '../ui/label.jsx'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select.jsx'
-import { Textarea } from '../ui/textarea.jsx'
+import { Button } from '../../../components/ui/button.jsx'
+import { Input } from '../../../components/ui/input.jsx'
+import { Label } from '../../../components/ui/label.jsx'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../../components/ui/select.jsx'
+import { Textarea } from '../../../components/ui/textarea.jsx'
 
 const sources = ['Website', 'LinkedIn', 'Referral', 'Cold Email', 'Event', 'Other']
 const statuses = ['New', 'Contacted', 'Qualified', 'Proposal Sent', 'Won', 'Lost']

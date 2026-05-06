@@ -1,10 +1,10 @@
 import { Clock, Eye, Pencil, Trash2 } from 'lucide-react'
 import { format, isAfter, isBefore, isSameDay, parseISO, addDays } from 'date-fns'
-import { Button } from '../ui/button.jsx'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../ui/table.jsx'
+import { Button } from '../../../components/ui/button.jsx'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../../components/ui/table.jsx'
 import StatusBadge from './StatusBadge.jsx'
 import PriorityBadge from './PriorityBadge.jsx'
-import { formatCurrency } from '../../utils/formatters.js'
+import { formatCurrency } from '../../../utils/formatters.js'
 
 const isDueTodayOrPast = (dateValue) => {
   if (!dateValue) return false

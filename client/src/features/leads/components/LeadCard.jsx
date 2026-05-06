@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
 import { Building2, DollarSign } from 'lucide-react'
-import { formatCurrency } from '../../utils/formatters.js'
+import { formatCurrency } from '../../../utils/formatters.js'
 import { cn } from '@/lib/utils.js'
 
 export default function LeadCard({ lead }) {

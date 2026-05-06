@@ -1,10 +1,13 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import Layout from './components/layout/Layout.jsx'
-import DashboardPage from './pages/DashboardPage.jsx'
-import LeadsPage from './pages/LeadsPage.jsx'
-import LeadDetailPage from './pages/LeadDetailPage.jsx'
-import LoginPage from './pages/LoginPage.jsx'
-import NotFoundPage from './pages/NotFoundPage.jsx'
+import DashboardPage from './features/dashboard/pages/DashboardPage.jsx'
+import LeadsPage from './features/leads/pages/LeadsPage.jsx'
+import LeadDetailPage from './features/leads/pages/LeadDetailPage.jsx'
+import MarketingPage from './features/marketing/pages/MarketingPage.jsx'
+import CRMDocsPage from './features/docs/pages/CRMDocsPage.jsx'
+import HelpdeskPage from './features/helpdesk/pages/HelpdeskPage.jsx'
+import LoginPage from './features/auth/pages/LoginPage.jsx'
+import NotFoundPage from './features/not-found/pages/NotFoundPage.jsx'
 import { useAuth } from './hooks/useAuth.js'
 
 function ProtectedRoute({ children }) {
@@ -40,6 +43,9 @@ export default function App() {
         <Route index element={<DashboardPage />} />
         <Route path="leads" element={<LeadsPage />} />
         <Route path="leads/:id" element={<LeadDetailPage />} />
+        <Route path="marketing" element={<MarketingPage />} />
+        <Route path="docs" element={<CRMDocsPage />} />
+        <Route path="helpdesk" element={<HelpdeskPage />} />
       </Route>
       <Route path="*" element={<NotFoundPage />} />
     </Routes>

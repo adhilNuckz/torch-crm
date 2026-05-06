@@ -6,6 +6,9 @@ import Navbar from './Navbar.jsx'
 const titleMap = {
   '/': 'Dashboard',
   '/leads': 'Leads',
+  '/marketing': 'Marketing',
+  '/docs': 'Documentation',
+  '/helpdesk': 'Helpdesk',
 }
 
 export default function Layout() {

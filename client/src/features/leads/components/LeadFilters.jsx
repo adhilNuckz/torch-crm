@@ -1,5 +1,5 @@
-import { Input } from '../ui/input.jsx'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select.jsx'
+import { Input } from '../../../components/ui/input.jsx'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../../components/ui/select.jsx'
 
 const statusOptions = ['All', 'New', 'Contacted', 'Qualified', 'Proposal Sent', 'Won', 'Lost']
 const sourceOptions = ['All', 'Website', 'LinkedIn', 'Referral', 'Cold Email', 'Event', 'Other']

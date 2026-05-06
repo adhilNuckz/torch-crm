@@ -1,4 +1,4 @@
-import { Badge } from '../ui/badge.jsx'
+import { Badge } from '../../../components/ui/badge.jsx'
 import { cn } from '@/lib/utils.js'
 
 const priorityStyles = {

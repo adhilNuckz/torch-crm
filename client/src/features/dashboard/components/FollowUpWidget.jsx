@@ -1,4 +1,4 @@
-import { Card, CardContent } from '../ui/card.jsx'
+import { Card, CardContent } from '../../../components/ui/card.jsx'
 
 export default function FollowUpWidget({ count }) {
   return (

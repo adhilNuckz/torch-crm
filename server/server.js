@@ -8,6 +8,8 @@ const authRoutes = require('./src/routes/authRoutes.js')
 const leadRoutes = require('./src/routes/leadRoutes.js')
 const noteRoutes = require('./src/routes/noteRoutes.js')
 const dashboardRoutes = require('./src/routes/dashboardRoutes.js')
+const marketingRoutes = require('./src/routes/marketingRoutes.js')
+const helpdeskRoutes = require('./src/routes/helpdeskRoutes.js')
 const errorHandler = require('./src/middleware/errorHandler.js')
 
 dotenv.config()
