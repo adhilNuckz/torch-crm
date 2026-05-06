@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import Papa from 'papaparse'
 import { createLead, deleteLead, updateLead, updateLeadStatus } from '../../../api/leads.js'
@@ -29,6 +29,9 @@ export default function LeadsPage() {
   const [editingLead, setEditingLead] = useState(null)
   const [searchValue, setSearchValue] = useState('')
   const [activeView, setActiveView] = useState('table')
+  const location = useLocation()
+  const queryParams = new URLSearchParams(location.search)
+  const initialFilter = queryParams.get('filter')
 
   const [page, setPage] = useState(1)
   const baseLimit = 10
@@ -58,8 +61,9 @@ export default function LeadsPage() {
     if (filters.priority !== 'All') params.priority = filters.priority
     if (filters.assignedTo !== 'All') params.assignedTo = filters.assignedTo
     if (filters.search) params.search = filters.search
+    if (initialFilter) params.filter = initialFilter
     setParams(params)
-  }, [filters, page, effectiveLimit, setParams])
+  }, [filters, page, effectiveLimit, setParams, initialFilter])
 
   const assignedOptions = useMemo(() => {
     const seen = new Map()
@@ -154,8 +158,18 @@ export default function LeadsPage() {
     URL.revokeObjectURL(url)
   }
 
-  const handlePageChange = (nextPage) => {
-    setPage(nextPage)
+  const handleUpdateLeadDirect = async (id, payload) => {
+    try {
+      const response = await updateLead(id, payload)
+      if (response?.success) {
+        toast.success('Follow-up updated.')
+        refetch()
+      } else {
+        toast.error(response?.message || 'Failed to update lead.')
+      }
+    } catch (err) {
+      toast.error(err?.response?.data?.message || 'Failed to update lead.')
+    }
   }
 
   return (
@@ -163,7 +177,21 @@ export default function LeadsPage() {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h2 className="text-2xl font-semibold">Leads</h2>
-          <p className="text-sm text-muted-foreground">Manage your pipeline and track opportunities.</p>
+          <p className="text-sm text-muted-foreground">
+            {initialFilter === 'dueToday' 
+              ? 'Showing leads requiring follow-up today.' 
+              : 'Manage your pipeline and track opportunities.'}
+          </p>
+          {initialFilter === 'dueToday' && (
+            <Button 
+              variant="link" 
+              size="sm" 
+              className="h-auto p-0 text-xs text-orange-600 font-bold"
+              onClick={() => navigate('/leads')}
+            >
+              ✕ Clear Follow-up Filter
+            </Button>
+          )}
         </div>
         <div className="flex gap-2">
           <Button variant="outline" onClick={handleExportCsv}>
@@ -210,6 +238,7 @@ export default function LeadsPage() {
                   onView={(id) => navigate(`/leads/${id}`)}
                   onEdit={openEditModal}
                   onDelete={handleDeleteLead}
+                  onUpdateLead={handleUpdateLeadDirect}
                 />
               )}
               <div className="mt-4 flex items-center justify-between">

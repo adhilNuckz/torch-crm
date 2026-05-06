@@ -38,7 +38,7 @@ export const useLeads = (initialParams = {}) => {
   }, [params, refreshIndex])
 
   const updateParams = useCallback((next) => {
-    setParams((prev) => ({ ...prev, ...next }))
+    setParams(next)
   }, [])
 
   const refetch = useCallback(() => {

@@ -1,14 +1,15 @@
-# CRM Lead Management System
-
-## Project overview
-A production-ready CRM Lead Management System for managing leads, tracking status changes, logging notes, and visualizing pipeline metrics through a modern dashboard and Kanban board.
-
-## Tech stack
-- **Frontend:** React + Vite + Tailwind CSS + shadcn/ui
-- **Backend:** Node.js + Express.js
-- **Database:** MongoDB + Mongoose
-- **Auth:** JWT (stored in localStorage and sent via Authorization header)
-- **Extras:** Axios, React Router v6, Recharts, date-fns, Lucide React icons, react-hot-toast
+## Features
+- **Dashboard:** Real-time metrics, lead distribution charts, and conversion tracking.
+*   **Lead Management:** CRUD operations, Kanban pipeline, and status history.
+*   **Email Marketing:** 
+    *   Campaign creation with HTML support.
+    *   Broadcast emails to all leads using SMTP.
+    *   Real-time tracking for **Open Rates** and **Click Rates**.
+    *   SMTP Gateway configuration panel.
+*   **Helpdesk Support:**
+    *   Support ticketing system for client communication.
+    *   Two-way chat between agents and clients.
+    *   "Test Client View" to simulate public ticket submission.
 
 ## How to run locally
 1. **Install dependencies**
@@ -26,6 +27,17 @@ A production-ready CRM Lead Management System for managing leads, tracking statu
 6. **Run the frontend**
    - `cd crm-app/client && npm run dev`
 
+## Email Marketing Setup
+To use the email broadcast feature:
+1. Navigate to the **Marketing** page.
+2. Click **Gateway Config**.
+3. Enter your SMTP details (e.g., Gmail SMTP host, port 587, and an **App Password**).
+4. Create a new campaign and click **Broadcast** to send.
+
+## Helpdesk Flow
+1. **Agent View:** Access the **Helpdesk** page to see active tickets and reply.
+2. **Client Simulation:** Click **Test Client View** on the Helpdesk page to simulate a client submitting a new support request.
+
 ## Environment variables
 ### Server (`server/.env`)
 - `PORT`: API port (default 5000)
@@ -34,24 +46,14 @@ A production-ready CRM Lead Management System for managing leads, tracking statu
 - `JWT_SECRET`: Secret for signing JWT tokens
 - `JWT_EXPIRES_IN`: JWT expiration (e.g., 7d)
 - `CLIENT_URL`: Allowed CORS origin (frontend URL)
+- `BACKEND_URL`: The base URL of the backend (required for email tracking pixels, e.g., http://localhost:5000)
 
 ### Client (`client/.env`)
 - `VITE_API_URL`: API base URL (e.g., http://localhost:5000/api)
-
-## Seed instructions
-Run the seed script to create the admin user and sample data:
-```
-cd crm-app/server
-npm run seed
-```
 
 ## Test credentials
 - **Email:** admin@example.com
 - **Password:** password123
 
-## Known limitations
-- No multi-user management UI (assignments are seeded or auto-assigned on create).
-- No file upload support for lead attachments.
-
 ## Reflection note
-This project emphasizes clean separation of concerns, consistent API responses, and a UI that prioritizes data clarity, quick actions, and visual feedback for pipeline health.
+This project emphasizes clean separation of concerns, consistent API responses, and a feature-based architecture that simplifies scaling modules like Marketing and Helpdesk independently.

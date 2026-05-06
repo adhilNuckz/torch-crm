@@ -1,9 +1,9 @@
+require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const helmet = require('helmet')
 const rateLimit = require('express-rate-limit')
-const dotenv = require('dotenv')
 const authRoutes = require('./src/routes/authRoutes.js')
 const leadRoutes = require('./src/routes/leadRoutes.js')
 const noteRoutes = require('./src/routes/noteRoutes.js')
@@ -11,8 +11,6 @@ const dashboardRoutes = require('./src/routes/dashboardRoutes.js')
 const marketingRoutes = require('./src/routes/marketingRoutes.js')
 const helpdeskRoutes = require('./src/routes/helpdeskRoutes.js')
 const errorHandler = require('./src/middleware/errorHandler.js')
-
-dotenv.config()
 
 const app = express()
 
@@ -39,6 +37,8 @@ app.use('/api/auth', authRoutes)
 app.use('/api/leads', leadRoutes)
 app.use('/api/notes', noteRoutes)
 app.use('/api/dashboard', dashboardRoutes)
+app.use('/api/marketing', marketingRoutes)
+app.use('/api/helpdesk', helpdeskRoutes)
 
 app.use(errorHandler)
 

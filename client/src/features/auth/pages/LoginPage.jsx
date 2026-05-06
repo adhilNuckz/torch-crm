@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
+import { Flame } from 'lucide-react'
 import { Button } from '../../../components/ui/button.jsx'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../../components/ui/card.jsx'
 import { Input } from '../../../components/ui/input.jsx'
@@ -44,12 +45,12 @@ export default function LoginPage() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-muted/40 px-4">
-      <Card className="w-full max-w-md">
+      <Card className="w-full max-w-md border-orange-500/10 shadow-xl">
         <CardHeader className="space-y-2 text-center">
-          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-primary-foreground">
-            CRM
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-orange-500 text-white shadow-lg shadow-orange-500/30">
+            <Flame className="h-10 w-10 fill-current" />
           </div>
-          <CardTitle>Sign in to CRM</CardTitle>
+          <CardTitle className="text-2xl font-bold">Sign in to Torch CRM</CardTitle>
           <CardDescription>Use your credentials to access the lead management system.</CardDescription>
         </CardHeader>
         <CardContent>

@@ -1,9 +1,11 @@
 import { useMemo, useState } from 'react'
+import { Calendar } from 'lucide-react'
 import { Button } from '../../../components/ui/button.jsx'
 import { Input } from '../../../components/ui/input.jsx'
 import { Label } from '../../../components/ui/label.jsx'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../../components/ui/select.jsx'
 import { Textarea } from '../../../components/ui/textarea.jsx'
+import { cn } from '@/lib/utils.js'
 
 const sources = ['Website', 'LinkedIn', 'Referral', 'Cold Email', 'Event', 'Other']
 const statuses = ['New', 'Contacted', 'Qualified', 'Proposal Sent', 'Won', 'Lost']
@@ -132,11 +134,16 @@ export default function LeadForm({ initialData, onSubmit, onCancel, submitLabel 
         </div>
         <div className="space-y-2">
           <Label>Next Follow-up</Label>
-          <Input
-            type="date"
-            value={form.nextFollowUp}
-            onChange={(event) => handleChange('nextFollowUp', event.target.value)}
-          />
+          <div className="relative">
+            <Input
+              type="date"
+              className="pl-10 cursor-pointer"
+              value={form.nextFollowUp}
+              onChange={(event) => handleChange('nextFollowUp', event.target.value)}
+              onClick={(e) => e.target.showPicker?.()}
+            />
+            <Calendar className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground pointer-events-none" />
+          </div>
         </div>
         <div className="space-y-2 md:col-span-2">
           <Label>Tags</Label>

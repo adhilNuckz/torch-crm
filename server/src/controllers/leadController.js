@@ -7,6 +7,15 @@ const buildFilters = (query) => {
   if (query.source) filters.leadSource = query.source
   if (query.assignedTo) filters.assignedTo = query.assignedTo
   if (query.priority) filters.priority = query.priority
+  
+  if (query.filter === 'dueToday') {
+    const start = new Date()
+    start.setHours(0, 0, 0, 0)
+    const end = new Date()
+    end.setHours(23, 59, 59, 999)
+    filters.nextFollowUp = { $gte: start, $lte: end }
+  }
+
   if (query.search) {
     filters.$or = [
       { leadName: { $regex: query.search, $options: 'i' } },

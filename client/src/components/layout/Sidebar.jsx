@@ -1,16 +1,16 @@
 import { NavLink } from 'react-router-dom'
-import { LayoutDashboard, Users, Megaphone, BookOpen, Headphones } from 'lucide-react'
+import { LayoutDashboard, Users, Megaphone, BookOpen, Headphones, Flame } from 'lucide-react'
 import { cn } from '@/lib/utils.js'
 
 const primaryNav = [
   { to: '/', label: 'Dashboard', icon: LayoutDashboard },
   { to: '/leads', label: 'Leads', icon: Users },
+  { to: '/marketing', label: 'Marketing', icon: Megaphone },
+  { to: '/helpdesk', label: 'Helpdesk', icon: Headphones },
 ]
 
 const secondaryNav = [
-  { to: '/marketing', label: 'Marketing', icon: Megaphone },
   { to: '/docs', label: 'Documentation', icon: BookOpen },
-  { to: '/helpdesk', label: 'Helpdesk', icon: Headphones },
 ]
 
 export default function Sidebar({ isOpen, onClose }) {
@@ -31,11 +31,13 @@ export default function Sidebar({ isOpen, onClose }) {
           isOpen ? 'translate-x-0' : '-translate-x-full',
         )}
       >
-        <div className="mb-10 flex items-center gap-2 text-xl font-semibold">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground">
-            CRM
+        <div className="mb-10 flex items-center gap-3 text-xl font-bold tracking-tight">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-500 text-white shadow-lg shadow-orange-500/20">
+            <Flame className="h-6 w-6 fill-current" />
           </div>
-          Lead Manager
+          <span className="bg-gradient-to-r from-orange-600 to-orange-400 bg-clip-text text-transparent">
+            Torch CRM
+          </span>
         </div>
         <nav className="flex flex-1 flex-col gap-1">
           {primaryNav.map((item) => {
