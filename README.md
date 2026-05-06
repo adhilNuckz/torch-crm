@@ -57,3 +57,5 @@ To use the email broadcast feature:
 
 ## Reflection note
 This project emphasizes clean separation of concerns, consistent API responses, and a feature-based architecture that simplifies scaling modules like Marketing and Helpdesk independently.
+
+demo link : https://youtu.be/6vhi30Js2Gc
